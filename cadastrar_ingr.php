@@ -1,7 +1,9 @@
 <?php
 	include 'PHP/conexao_bd.php';
 	$conn = OpenCon();
-	$msg = '';
+
+	$ingr = null;
+	$obs = null;
 
 	if (!isset($_SESSION)) {
 		session_start();
@@ -11,46 +13,22 @@
 	  header("Location: PHP/logout.php"); exit;
 	}
 
-	function simNao($var){
-		if ($var == 'S'){
-			return 'Sim';
-		}
-		else {
-			return 'Não';
-		}
-	}
+	if (isset( $_GET['id'] ) && !empty( $_GET['id'])){
+		$ingr_id = $_GET['id'];
 
-	if ( isset( $_GET['action'] ) && $_GET['action'] == 'remove' ){
-		
-    	if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
-    		$user_id = $_GET['id'];
-    		$q_inativa_user = "UPDATE usuario
-        				    	  SET user_ativo = 'N'
-        				  		WHERE user_id = ".$user_id;
-        	if(mysqli_query($conn, $q_inativa_user)){
-	    		$msg = 'Usuário Inativado!';
-				header("Location: usuarios.php?message=".$msg);
-			} 
-    	}
-	}
+		$q_ingr = "SELECT ingr_nome,
+						  ingr_obs
+					 FROM ingrediente
+				    WHERE ingr_id = ".$ingr_id;
+		$f_ingr = $conn->query($q_ingr);
+		while ($r_ingr = $f_ingr->fetch_array()){
 
-	if ( isset( $_GET['action'] ) && $_GET['action'] == 'ativa' ){
-		
-    	if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
-    		$user_id = $_GET['id'];
-    		$q_inativa_user = "UPDATE usuario
-        				    	  SET user_ativo = 'S'
-        				  		WHERE user_id = ".$user_id;
-        	if(mysqli_query($conn, $q_inativa_user)){
-	    		$msg = 'Usuário Ativado!';
-				header("Location: usuarios.php?message=".$msg);
-			} 
-    	}
+			$ingr = $r_ingr['ingr_nome'];
+			$obs = $r_ingr['ingr_obs'];
+		}
 	}
 
 ?>
-
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" http-equiv="refresh" content="100">
@@ -119,77 +97,19 @@
 								<li><a href="/#how-it-work" id="btn-how-it-work">Como funciona</a></li>
 								<li><a href="/#about-us-area" id="btn-about-us">Baixe o app</a></li>
 								<li><a href="/#advantage-area" id="btn-advantage">Parceiros</a></li>
+								<li><a href="cadastrar_ingr.php" id="btn-cadastrar-ingrediente" class="active">Cadastrar Ingredientes</a></li>
 								<li><a href="cadastrar_empresa.php" id="btn-cadastrar-pizzaria">Cadastrar Pizzaria</a></li>
 								<li><a href="empresas.php" id="btn-empresas">Empresas</a></li>
-								<li><a href="usuarios.php" id="btn-usuarios" class="active">Usuários</a></li>
+								<li><a href="usuarios.php" id="btn-usuarios">Usuários</a></li>
 								<li><a href="PHP/logout.php" id="btn-logout">Logout</a></li>
-								</ul>
+							  </ul>
 							</div>							
 						</nav>
 						<!--Menu area end-->
 					</div>
 				</div>
 			</div>
-		</header>;
-									<?php
-									echo ' <br> <br>
-												<div class="container">';
-												if(isset($_GET['message'])){
-													echo $_GET['message'];
-												}        
-												echo  '<table class="table table-striped">
-													    <thead>
-													      <tr>
-													        <th>Usuário</th>
-													        <th>E-mail</th>
-													        <th>Ativo</th>
-													        <th>Administrador</th>
-													        <th>Ativar/Inativar</th>
-													      </tr>
-													    </thead>
-													    <tbody>';
-										$q_usuarios = "SELECT user_id,
-															  user_name,
-															  user_email,
-															  user_ativo,
-															  user_admin
-														 FROM usuario
-													    WHERE user_id != ".$_SESSION['UsuarioID']."
-													      AND user_admin != 'S'";
-										$f_usuarios = $conn->query($q_usuarios);
-
-										while ($r_usuarios = $f_usuarios->fetch_array()){
-
-											$v_user_name = $r_usuarios['user_name'];
-											$v_user_email = $r_usuarios['user_email'];
-											$v_user_ativo = simNao($r_usuarios['user_ativo']);
-											$v_user_admin = simNao($r_usuarios['user_admin']);
-											$v_user_id = $r_usuarios['user_id'];
-
-											echo '<tr>
-											        <td>'.$v_user_name.'</td>
-											        <td>'.$v_user_email.'</td>
-											        <td>'.$v_user_ativo.'</td>
-											        <td>'.$v_user_admin.'</td>
-											        <td>';
-											if ($v_user_ativo == 'Sim') {
-												echo '<a title="inativar usuário" id="'.$v_user_id.'" href="usuarios.php?action=remove&id='.$v_user_id.'">Inativar</td>';
-											}
-											else {
-												echo '<a title="ativar usuário" id="'.$v_user_id.'" href="usuarios.php?action=ativa&id='.$v_user_id.'">Ativar</td>';
-											}
-											
-											echo '<td>
-											    </tr>';
-										}
-										CloseCon($conn);
-												      
-									echo '</tbody>
-									   </table>
-									</div>
-									';
-								   
-								?>
+		</header>
 <!-- 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center image-center">
@@ -197,13 +117,48 @@
 				</div>	
 			</div>
 		</div> -->
+			
+			<section class="body">
+				<div class="container">
+					<?php
+						if(isset($_GET['message'])){
+			    			echo $_GET['message'];
+						}
+					echo '
+					<form method="POST" action="PHP/cadastrar_ingr_bd.php" data-toggle="validator" role="form">
+						<div class="row">
+							<div class="col-md-5">
+								<br>
+								<label for="tel">Ingrediente:</label>
+								<input type="text" id="ingr" name="ingr" class="form-control" placeholder="Ingrediente" value="'.$ingr.'" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<br>
+								<label for="cel">Observações:</label>
+								<input type="text" id="obs" name="obs" class="form-control" placeholder="Observações" value "'.$obs.'">';
+								if (isset( $_GET['id'] ) && !empty( $_GET['id'])) {
+									echo '<input type="hidden" id="ingr_id" name="ingr_id" class="form-control" value="'.$ingr_id.'">';
+								}
+								echo '
+							</div>
+						</div>
+						<br>
+						<input name="submit" type="submit" value="Submeter" class="btn btn-success">
+										
+					</form>';
+					?>
+				</div>
+			</section>
 		</section>
 
 
 
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js">	</script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

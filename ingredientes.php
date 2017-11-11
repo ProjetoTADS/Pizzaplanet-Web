@@ -23,13 +23,13 @@
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'remove' ){
 		
     	if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
-    		$user_id = $_GET['id'];
-    		$q_inativa_user = "UPDATE usuario
-        				    	  SET user_ativo = 'N'
-        				  		WHERE user_id = ".$user_id;
-        	if(mysqli_query($conn, $q_inativa_user)){
-	    		$msg = 'Usuário Inativado!';
-				header("Location: usuarios.php?message=".$msg);
+    		$ingr_id = $_GET['id'];
+    		$q_inativo_ingr = "UPDATE ingrediente
+        				    	  SET ingr_ativo = 'N'
+        				  		WHERE ingr_id = ".$ingr_id;
+        	if(mysqli_query($conn, $q_inativo_ingr)){
+	    		$msg = 'Ingrediente inativado!';
+				header("Location: ingredientes.php?message=".$msg);
 			} 
     	}
 	}
@@ -37,13 +37,13 @@
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'ativa' ){
 		
     	if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
-    		$user_id = $_GET['id'];
-    		$q_inativa_user = "UPDATE usuario
-        				    	  SET user_ativo = 'S'
-        				  		WHERE user_id = ".$user_id;
-        	if(mysqli_query($conn, $q_inativa_user)){
-	    		$msg = 'Usuário Ativado!';
-				header("Location: usuarios.php?message=".$msg);
+    		$ingr_id = $_GET['id'];
+    		$q_inativa_ingr = "UPDATE ingrediente
+        				    	  SET ingr_ativo = 'S'
+        				  		WHERE ingr_id = ".$ingr_id;
+        	if(mysqli_query($conn, $q_inativa_ingr)){
+	    		$msg = 'Ingrediente ativado!';
+				header("Location: ingredientes.php?message=".$msg);
 			} 
     	}
 	}
@@ -121,7 +121,8 @@
 								<li><a href="/#advantage-area" id="btn-advantage">Parceiros</a></li>
 								<li><a href="cadastrar_empresa.php" id="btn-cadastrar-pizzaria">Cadastrar Pizzaria</a></li>
 								<li><a href="empresas.php" id="btn-empresas">Empresas</a></li>
-								<li><a href="usuarios.php" id="btn-usuarios" class="active">Usuários</a></li>
+								<li><a href="ingredientes.php" id="btn-ingredientes" class="active">Ingredientes</a></li>
+								<li><a href="usuarios.php" id="btn-usuarios">Usuários</a></li>
 								<li><a href="PHP/logout.php" id="btn-logout">Logout</a></li>
 								</ul>
 							</div>							
@@ -140,46 +141,41 @@
 												echo  '<table class="table table-striped">
 													    <thead>
 													      <tr>
-													        <th>Usuário</th>
-													        <th>E-mail</th>
+													        <th>Ingrediente</th>
+													        <th>Obsservação</th>
 													        <th>Ativo</th>
-													        <th>Administrador</th>
 													        <th>Ativar/Inativar</th>
+													        <th>Editar</th>
 													      </tr>
 													    </thead>
 													    <tbody>';
-										$q_usuarios = "SELECT user_id,
-															  user_name,
-															  user_email,
-															  user_ativo,
-															  user_admin
-														 FROM usuario
-													    WHERE user_id != ".$_SESSION['UsuarioID']."
-													      AND user_admin != 'S'";
-										$f_usuarios = $conn->query($q_usuarios);
+										$q_ingr = "SELECT ingr_id,
+															  ingr_nome,
+															  ingr_obs,
+															  ingr_ativo
+														 FROM ingrediente";
+										$f_ingr = $conn->query($q_ingr);
 
-										while ($r_usuarios = $f_usuarios->fetch_array()){
+										while ($r_ingr = $f_ingr->fetch_array()){
 
-											$v_user_name = $r_usuarios['user_name'];
-											$v_user_email = $r_usuarios['user_email'];
-											$v_user_ativo = simNao($r_usuarios['user_ativo']);
-											$v_user_admin = simNao($r_usuarios['user_admin']);
-											$v_user_id = $r_usuarios['user_id'];
+											$v_ingr_id = $r_ingr['ingr_id'];
+											$v_ingr_nome = $r_ingr['ingr_nome'];
+											$v_ingr_obs = $r_ingr['ingr_obs'];
+											$v_ingr_ativo = simNao($r_ingr['ingr_ativo']);
 
 											echo '<tr>
-											        <td>'.$v_user_name.'</td>
-											        <td>'.$v_user_email.'</td>
-											        <td>'.$v_user_ativo.'</td>
-											        <td>'.$v_user_admin.'</td>
+											        <td>'.$v_ingr_nome.'</td>
+											        <td>'.$v_ingr_obs.'</td>
+											        <td>'.$v_ingr_ativo.'</td>
 											        <td>';
-											if ($v_user_ativo == 'Sim') {
-												echo '<a title="inativar usuário" id="'.$v_user_id.'" href="usuarios.php?action=remove&id='.$v_user_id.'">Inativar</td>';
+											if ($v_ingr_ativo == 'Sim') {
+												echo '<a title="inativar ingrediente" id="'.$v_ingr_id.'" href="ingredientes.php?action=remove&id='.$v_ingr_id.'">Inativar</td>';
 											}
 											else {
-												echo '<a title="ativar usuário" id="'.$v_user_id.'" href="usuarios.php?action=ativa&id='.$v_user_id.'">Ativar</td>';
+												echo '<a title="ativar ingrediente" id="'.$v_ingr_id.'" href="ingredientes.php?action=ativa&id='.$v_ingr_id.'">Ativar</td>';
 											}
 											
-											echo '<td>
+											echo '<td><a title="editar" id="'.$v_ingr_id.'" href="cadastrar_ingr.php?id='.$v_ingr_id.'">Editar</td>
 											    </tr>';
 										}
 										CloseCon($conn);

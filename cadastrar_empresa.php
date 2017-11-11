@@ -67,7 +67,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya|Exo+2:700" rel="stylesheet">
-	<script type="text/javascript">$(document).ready(function(){	$("#cnpj").mask("99.999.999/9999-99");});</script>
 </head>
 <body>	
 	<!--Header end-->
@@ -258,9 +257,11 @@
 							<div class="col-md-5">
 								<br>
 								<label for="logradouro">Logradouro:</label>
-								<input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Logradouro" value="'.$emp_logradouro.'" required>
-								<input type="hidden" id="emp_id" name="emp_id" class="form-control" value="'.$emp_id.'">
-							</div>
+								<input type="text" id="logradouro" name="logradouro" class="form-control" placeholder="Logradouro" value="'.$emp_logradouro.'" required>';
+								if (isset( $_GET['id'] ) && !empty( $_GET['id'])) {
+									echo '<input type="hidden" id="emp_id" name="emp_id" class="form-control" value="'.$emp_id.'">';
+								}
+							echo '</div>
 						</div>'
 						?>
 						<br>
