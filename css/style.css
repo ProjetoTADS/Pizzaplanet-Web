@@ -1,0 +1,123 @@
+.bd{
+	padding: 0px;
+	margin:0px;
+	color: white;
+	background: #1c0807;
+}
+
+.header{
+	height: 180px;
+	padding-top: 10px;
+	background: #FFD700;
+	box-shadow: 0px 1px 5px;
+}
+.body{
+}
+
+.form-login{
+	margin: 40px 30%;	
+	border: 1px solid #f9f9f9;
+	padding: 30px;
+	border-radius: 10px;
+	background: rgba(211, 209, 209, 0.6);
+}
+
+label{
+	font-weight: bold;
+	color: #df0f05 !important;
+	font-size: 1.1em;
+}
+
+.modal-header{
+	background: #ee3229;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.form-login h1{
+	text-align: center;
+}
+
+.clearfix{
+	background: #ee3229 !important;
+    border-bottom: 6px solid #ff665f;
+}
+
+.navbar-default{
+	margin-bottom: 3px solid #333;
+}
+
+
+.home{
+	background: url('../img/fundo2.jpg');
+	height: 100vh;
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.title_pizza{
+	color: #ee3229;
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.active{
+	padding:5px;
+	background: #d83514;
+}
+
+/*EDIÇÃO DE LOGO*/
+.navbar-nav > li > a{
+	color:#fff;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.image-center{
+	
+}
+
+.navbar-nav > li > a:hover{
+	color:#000;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.first-letter{
+	color: #f1ff16;
+	font-size: 40px;
+	font-family: 'Exo 2', sans-serif;
+}
+
+.navbar-brand{
+/*	border-bottom: 2px solid #fff;
+*/}
+
+#nav-menu{
+	margin-left: 100px;
+}
+
+.second-letter{
+	color: #fff;
+	font-size: 35px;
+	font-family: 'Exo 2', sans-serif;
+
+}
+
+.box-gray{
+
+}
+
+.title{
+	font-weight: bold;
+	font-family: arial;
+}
+.footer-title{
+	color: #000;
+	background-color: #1c0807;
+
+}
+.excluir:hover{
+	cursor: pointer;
+}

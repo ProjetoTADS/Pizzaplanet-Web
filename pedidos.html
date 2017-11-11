@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" http-equiv="refresh" content="100">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pizza Planet - Pedidos</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya|Exo+2:700" rel="stylesheet">
+</head>
+<body class="bd">	
+	<!--Header end-->
+
+		<!-- <div class="nav navbar navbar-fixed-top" id="float-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 padding-right-0">
+						<nav class="navbar">
+							<div class="navbar-header">
+							  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							  </button>
+							  <a class="navbar-brand" href="#"><img src="images/logo.png" alt="" /></a>
+							</div>
+							<div class="collapse navbar-collapse main-menu" id="nav-menu">
+							  <ul class="nav navbar-nav navbar-right">
+								<li><a href="#how-it-work-2" id="btn-top" title="Voltar ao topo"><i class="fa fa-2x fa-home" aria-hidden="true"></i></a></li>
+								<li><a href="#how-it-work-2" id="btn-how-it-work-2">Como funciona</a></li>
+								<li><a href="#about-us-area-2" id="btn-about-us-2">Sobre o Rede Frete</a></li>
+								<li><a href="#advantage-area-2" id="btn-advantage-2">Vantagens</a></li>
+								<li><a href="#contact-area-2" id="btn-contact-us-2">Fale conosco</a></li>
+							  </ul>
+							</div>
+						</nav>
+					</div>
+					<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding-left-0">
+						<a href="/login"><button class="entrar-2">entrar</button></a>
+						<button class="cadastre" id="btn-cadastrar-2">cadastre-se</button>
+					</div>
+				</div>
+			</div>				
+		</div> -->
+
+	<section class="home">
+		<!--Header start-->
+		<header class="header-area clearfix">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<!---- Menu area start ---->
+						<nav class="navbar">
+							<div class="navbar-header">
+							  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							  </button>
+							  <a class="navbar-brand" href="/"><span class="first-letter">Go</span> <span class="second-letter">pizza</span></a>
+							</div>
+							<div class="collapse navbar-collapse pull-right" id="nav-menu">
+							  <ul class="nav navbar-nav navbar-right pull-right">
+								<li><a href="/#how-it-work" id="btn-how-it-work" class="active">Inicio</a></li>
+								<li><a href="/#how-it-work" id="btn-how-it-work">Como funciona</a></li>
+								<li><a href="/#about-us-area" id="btn-about-us">Baixe o app</a></li>
+								<li><a href="/#advantage-area" id="btn-advantage">Parceiros</a></li>
+								<li><a href="/#contact-area" id="btn-contact-us">Cadastre sua pizzaria</a></li>
+							  </ul>
+							</div>							
+						</nav>
+						<!--Menu area end-->
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="">
+			<div class="container">
+				<form method="POST" action="" enctype="">
+					<h1 class="text-center">Pedidos</h1>
+					<div class="row">
+						<div class="col-md-12">
+							<br>
+							<fieldset>
+								<legend style="color: white">Massas</legend>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="massa">Massa:</label>
+										<select name="massa" id="massa" class="form-control">
+											<option value="">Selecione a massa</option>
+											<option value="Massa Napolitana">Massa Napolitana</option>
+											<option value="Massa Nova-Iorquina">Massa Nova-Iorquina</option>
+											<option value="Massa Siciliana">Massa Siciliana</option>
+										</select>
+									</div>
+				
+									<div class="col-md-6">
+										<label for="borda">Borda:</label>
+										<select name="borda" id="borda" class="form-control">
+											<option value="">Selecione a borda</option>
+											<option value="Salgada">Salgada</option>
+											<option value="Doce">Doce</option>
+										</select>
+									</div>
+								</div>
+								<!-- so deve aparecer com a escolha do cliente-->
+								<br>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="salgada">Itens-Salgados:</label>
+										<select name="salgada" id="salgada" class="form-control">
+											<option value="Cheddar">Cheddar</option>
+											<option value="Catupiry">Catupiry</option>
+											<option value="Muçarela">Muçarela</option>
+											<option value="Calabresa">Calabresa</option>
+											<option value="Presunto">Presunto</option>
+										</select>
+									</div>
+									<div class="col-md-6">
+										<label for="doce">Item-Doces:</label>
+										<select name="doce" id="doce" class="form-control">
+											<option value="Goiabada">Goiabada</option>
+											<option value="Chocolate ao leite">Chocolate ao leite</option>
+											<option value="Chocolate branco">Chocolate branco</option>
+										</select>
+									</div>
+								</div>
+								<!-- so deve aparecer com a escolha do cliente-->
+							</fieldset>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<fieldset>
+								<br>
+								<legend style="color: white">Pizzas</legend>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="">Tradicionais:</label>
+										<select name='tradicionais' id='tradicionais' class="form-control">
+											<option value="">Selecione</option>
+											<option value="Carne moída">Carne moída</option>
+											<option value="Margherita">Margherita</option>
+											<option value="Bacon">Bacon</option>
+											<option value="Portuguesa">Portuguesa</option>
+											<option value="Calabresa">Calabresa</option>
+											<option value="Frango">Frango</option>
+											<option value="Napolitana">Napolitana</option>
+											<option value="4 queijos">4 queijos</option>
+											<option value="Atum">Atum</option>
+											<option value="Muçarela, parmesão e bacon">Muçarela, parmesão e bacon/option>
+											<option value="Rúcula com tomate seco">Rúcula com tomate seco</option>
+											<option value="Lombo">Lombo</option>
+										</select>
+									</div>
+									<div class="col-md-6">
+										<label for="">Especiais:</label>
+										<select name='especiais' id='escpeciais' class="form-control">
+											<option value="">Selecione</option>
+											<option value="Tropical">Tropical</option>
+											<option value="Frango com linguiça">Frango com linguiça</option>
+											<option value="Filé e 4 queijos">Filé e 4 queijos</option>
+											<option value="Brie, presunto e rúcula">Brie, presunto e rúcula</option>
+											<option value="Bacon e pepperoni">Bacon e pepperoni</option>
+											<option value="Mexicana">Mexicana</option>
+										</select>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="">Vegetarianos e Veganos:</label>
+										<select name='estilo' id='estilo' class="form-control">
+											<option value="">Selecione</option>
+											<option value="Queijo, tomate e alho-poró">Queijo, tomate e alho-poró</option>
+											<option value="Brie com pera">Brie com pera</option>
+											<option value="Cebola caramelizada com queijo de cabra">Cebola caramelizada com queijo de cabra</option>
+											<option value="4 queijos">4 queijos</option>
+											<option value="Abobrinha">Abobrinha</option>
+											<option value="Bioqueijo">Bioqueijo</option>
+											<option value="Rúcula, tomate e champignon">Rúcula, tomate e champignon</option>
+										</select>
+									</div>
+									<div class="col-md-6">
+										<label for="">Integrais e Fitness:</label>
+										<select name='estilo' id='estilo' class="form-control">
+											<option value="">Selecione</option>
+											<option value="Peito de peru com brócolis">Peito de peru com brócolis</option>
+											<option value="Abobrinha">Abobrinha</option>
+											<option value="Carne acebolada e creme de tofu">Carne acebolada e creme de tofu</option>
+											<option value="Frango e rúcula">Frango e rúcula</option>
+											<option value="Carne e tomate lowcarb">Carne e tomate lowcarb</option>
+											<option value="Sem lactose">Sem lactose</option>
+											<option value="Presunto e queijo">Presunto e queijo</option>
+										</select>
+									</div>
+								</div>
+								<br>
+								<div class="row">	
+									<div class="col-md-6">
+										<label for="">Doces:</label>
+										<select name='estilo' id='estilo' class="form-control">
+											<option value="">Selecione</option>
+											<option value="Maçã e banana">Maçã e banana</option>
+											<option value="Nutella com chocolates">Nutella com chocolatess</option>
+											<option value="Banana com doce de leite">Banana com doce de leite</option>
+											<option value="Chocolate com morango">Chocolate com morango</option>
+											<option value="Pizza de chocolate">Pizza de chocolate</option>
+										</select>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<fieldset>
+								<legend style="color: white">Adicionais</legend>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Bordas</h3>
+										<label class="checkbox-inline"><input type="radio" name="adborda" value="gergilim"> &ensp;Gergilim</label>
+										<label class="checkbox-inline"><input type="radio" value="canela" name="adborda"> &ensp;Canela</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Especiais</h3>
+										<label class="checkbox-inline"><input type="radio" value="palmito" name="adespecial"> &ensp;Palmito</label>
+										<label class="checkbox-inline"><input type="radio" value="Champignom" name="adespecial"> &ensp;Champignom</hlabel>
+										<label class="checkbox-inline"><input type="radio" value="Alho poró" name="adespecial"> &ensp;Alho poró</label>
+										<label class="checkbox-inline"><input type="radio" value="Cheddar" name="adespecial"> &ensp;Cheddar</label>
+										<label class="checkbox-inline"><input type="radio" value="Catupiry" name="adespecial"> &ensp;Catupiry</label>
+										<label class="checkbox-inline"><input type="radio" value="Alho frio" name="adespecial"> &ensp;Alho frito</label>
+										<label class="checkbox-inline"><input type="radio" value="Tomate seco" name="adespecial"> &ensp;Tomate seco</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Simples</h3>
+										<label class="checkbox-inline"><input type="radio" value="Azeitona" name="adsimples">Azeitona</label>
+										<label class="checkbox-inline"><input type="radio" value="Cebola" name="adsimples">Cebola</label>
+										<label class="checkbox-inline"><input type="radio" value="Pimentão" name="adsimples">Pimentão</label>
+										<label class="checkbox-inline"><input type="radio" value="Milho" name="adsimples">Milho</label>
+										<label class="checkbox-inline"><input type="radio" value="Tomate" name="adsimples">Tomate</label>
+										<label class="checkbox-inline"><input type="radio" value="Manjericão" name="adsimples">Manjericão</label>
+									</div>
+								</div>
+							</fieldset>	
+						</div>	
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<fieldset>
+								<legend style="color: white">Bebidas</legend>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Refrigerantes</h3>
+										<label class="checkbox-inline"><input type="radio" value="Coca-Cola"> &ensp;Coca-Cola</label>
+										<label class="checkbox-inline"><input type="radio" value="Pepsi"> &ensp;Pepsi</label>
+										<label class="checkbox-inline"><input type="radio" value="Itubaina"> &ensp;Itubaina</label>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<!--<footer class="footer navbar-fixed-bottom">
+		<h4 class="text-center footer-title"><span class="second-letter" style="font-size: 20px">&copy;</span><span class="first-letter" style="font-size: 20px">Go</span> <span class="second-letter" style="font-size: 20px">Pizza</span> </h4>-->
+	</section>	
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
